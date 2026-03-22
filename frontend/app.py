@@ -17,7 +17,20 @@ previous_marathon_count = st.number_input("Previous Marathons", value=1)
 training_program = st.selectbox("Training Program", ["Beginner", "Intermediate", "Other"])
 motivation_level = st.slider("Motivation Level", 1, 10, 5)
 
-personal_best_minutes = st.number_input("Personal Best (minutes)", value=240)
+has_pb = st.radio("Have you run a marathon before?", ["Yes", "No"])
+
+if has_pb == "Yes":
+    personal_best_minutes = st.number_input("Personal Best (minutes)", value=240)
+
+else:
+    level = st.selectbox("Your fitness level", ["Beginner", "Intermediate", "Advanced"])
+
+    if level == "Beginner":
+        personal_best_minutes = 300
+    elif level == "Intermediate":
+        personal_best_minutes = 260
+    else:
+        personal_best_minutes = 220
 
 weekly_mileage_km = st.number_input("Weekly Mileage (km)", value=40)
 runs_per_week = st.number_input("Runs per Week", value=4)
@@ -91,6 +104,9 @@ if st.button("Predict"):
                 st.info(f"{w['change']} → {w['impact']}")
         else:
             st.warning("No major improvements detected. You're already near optimal performance!")
+        
+        st.markdown("## 🤖 AI Coach Insights")
+        st.write(result["ai_insights"])
 
     except Exception as e:
         st.error("Error connecting to API")
