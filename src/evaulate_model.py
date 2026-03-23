@@ -37,20 +37,24 @@ features = [
     "runs_per_week",
     "long_run_distance_km",
     "training_adherence_pct",
+    "personal_best_minutes",
 
+    # NEW STRONG FEATURES
     "rest_days_per_week",
     "speed_work_sessions_per_week",
     "training_streak_days",
     "missed_workout_pct",
 
+    # PHYSIOLOGICAL FEATURES
     "vo2_max",
     "resting_heart_rate_bpm",
     "recovery_score",
 
+    # RACE DAY FEATURES
     "marathon_weather",
     "course_difficulty",
-
-    # engineered
+    
+    # ENGINEERED FEATURES
     "training_load",
     "aerobic_efficiency",
     "speed_ratio",

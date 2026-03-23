@@ -23,6 +23,11 @@ def generate_insights(data, prediction, what_if):
     - 2-3 suggestions
     - Simple advice
 
+    Output format requirements:
+    - Plain text only (no markdown syntax like **bold**, *italic*, or numbered lists with markdown markers)
+    - Short paragraphs
+    - Do not include code blocks
+
     Keep it short and practical.
     """
 

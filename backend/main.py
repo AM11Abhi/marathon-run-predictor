@@ -2,8 +2,18 @@ from fastapi import FastAPI
 from backend.schemas import RunnerInput
 from src.predict import predict_runner, what_if_analysis
 from src.llm_insights import generate_insights
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+    "http://localhost:8081",
+    "https://your-frontend.vercel.app"
+    ], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 def format_time(minutes):
     hours = int(minutes // 60)
     mins = int(minutes % 60)
