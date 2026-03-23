@@ -2,7 +2,6 @@ venv/
 __pycache__/
 *.pyc
 .env
-model/
 node_modules/
 
 # Logs
